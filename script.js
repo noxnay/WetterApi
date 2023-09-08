@@ -32,25 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.send();
     });
 
-    function displayWeather(data) {
-        const cityName = data.name;
-        const temperature = data.main.temp;
-        const weatherDescription = data.weather[0].description;
-        const iconCode = data.weather[0].icon;
-        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
-
-        const weatherHtml = `
-            <h2>Wetter in ${cityName}</h2>
-            <p>Temperatur: ${temperature}°C</p>
-            <p>Beschreibung: ${weatherDescription}</p>
-            <img src="${iconUrl}" alt="Wetter Icon">
-        `;
-
-        weatherInfo.innerHTML = weatherHtml;
-        
-        
-    }
-
     function displayError(statusText, errorMessage) {
         const errorHtml = `
             <p>${statusText}</p>
@@ -80,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const weatherHtml = `
             <h2>Wetter in ${cityName}, ${country}</h2>
+            <img src="${iconUrl}" alt="Wetter Icon">
             <p>Temperatur: ${temperature}°C</p>
             <p>Min. Temperatur: ${tempMin}°C</p>
             <p>Max. Temperatur: ${tempMax}°C</p>
@@ -90,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>Windgeschwindigkeit: ${windSpeed} m/s</p>
             <p>Sonnenaufgang: ${sunriseTime}</p>
             <p>Sonnenuntergang: ${sunsetTime}</p>
-            <img src="${iconUrl}" alt="Wetter Icon">
         `;
     
         weatherInfo.innerHTML = weatherHtml;
